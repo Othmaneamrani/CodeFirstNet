@@ -1,0 +1,32 @@
+﻿@model List<Produit>
+
+
+@{
+}
+
+<h2 class="mt-5 mb-5 ">Produits</h2>
+
+<table class="table text-light">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Titre</th>
+            <th scope="col">Catégorie</th>
+            <th scope="col">Quantité</th>
+            <th scope="col">description</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var produit in Model)
+        {
+            <tr>
+                <th scope="row">@produit.id</th>
+                <td>@produit.titre.First().ToString().ToUpper()@produit.titre.Substring(1)</td>
+                <td>@produit.categorie.First().ToString().ToUpper()@produit.categorie.Substring(1)</td>
+                <td>@produit.quantite</td>
+                <td>@produit.description.First().ToString().ToUpper()@produit.description.Substring(1)</td>
+            </tr>
+        }
+    </tbody>
+</table>

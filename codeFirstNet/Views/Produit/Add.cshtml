@@ -1,0 +1,28 @@
+﻿@model ProduitCommand
+
+
+@{
+}
+
+<h2 class="mt-5">Ajouter un nouveau produit</h2>
+
+<form method="post" action="Add" class="mt-5">
+    <div class="mb-3">
+        <label class="form-label">Titre</label>
+        <input type="text" class="form-control" asp-for="titreCommand">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Catégorie</label>
+        <input type="text" class="form-control" asp-for="categorieCommand">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Quantité</label>
+        <input type="number" class="form-control" asp-for="quantiteCommand">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <input type="text" class="form-control" asp-for="descriptionCommand">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+</form>

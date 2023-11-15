@@ -6,6 +6,10 @@ html {
   html {
     font-size: 16px;
   }
+    body {
+        background-color: #333;
+        color: #fff;
+    }
 }
 
 html {
@@ -14,5 +18,7 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #333;
+    color: #fff;
 }

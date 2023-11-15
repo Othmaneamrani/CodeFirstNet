@@ -1,7 +1,13 @@
+using codeFirstNet.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<ProduitContext>(options =>
+    options.UseSqlServer(builder.Configuration.
+    GetConnectionString("MvcProduitConnexionString")));
 
 var app = builder.Build();
 
