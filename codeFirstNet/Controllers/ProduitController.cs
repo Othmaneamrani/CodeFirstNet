@@ -50,5 +50,76 @@ namespace codeFirstNet.Controllers
             return View(produits);
         }
 
+
+
+
+
+
+
+        [HttpGet]
+        public async Task<IActionResult> GetUpdate(int id)
+        {
+            var produit = await produitContext.produits.FirstOrDefaultAsync(p => p.id == id);
+            if(produit != null)
+            {
+                ProduitCommand produitCommand = new ProduitCommand
+                {
+                    idCommand = produit.id,
+                    titreCommand = produit.titre,
+                    categorieCommand = produit.categorie,
+                    quantiteCommand = produit.quantite,
+                    descriptionCommand = produit.description,
+                };
+
+                return View(produitCommand);
+            }
+            return RedirectToAction("list");
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> GetUpdate(ProduitCommand produitCommand)
+        {
+            var produit = await produitContext.produits.FindAsync(produitCommand.idCommand);
+            if (produit != null)
+            {
+                produit.titre = produitCommand.titreCommand;   
+                produit.categorie = produitCommand.categorieCommand;
+                produit.quantite = produitCommand.quantiteCommand;
+                produit.description = produitCommand.descriptionCommand;
+                await produitContext.SaveChangesAsync();
+                return RedirectToAction("list");
+            }
+            return RedirectToAction("list");
+        }
+
+
+
+        [HttpGet]
+        public async Task<IActionResult> GetDelete(int id)
+        {
+            var produit = await produitContext.produits.FirstOrDefaultAsync(p => p.id == id);
+            if (produit != null)
+            {
+                return View(produit);
+            }
+            return RedirectToAction("list");
+        }
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> GetDelete(Produit produit)
+        {
+            var produitDelete = await produitContext.produits.FindAsync(produit.id);
+            if (produitDelete != null)
+            {
+                produitContext.produits.Remove(produitDelete);
+                await produitContext.SaveChangesAsync();
+                return RedirectToAction("list");
+            }
+            return RedirectToAction("list");
+        }
+
     }
 }

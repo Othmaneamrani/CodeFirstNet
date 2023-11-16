@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "83c6RSn0d8EXM8K6yq5rTzlnMOrjZyUlOFQPofaYWBg=",
+  "Hash": "Jh0U1IDMem4RoAnd49QHTjr/U7Y/80hYzOMDKJbomho=",
   "Source": "codeFirstNet",
   "BasePath": "_content/codeFirstNet",
   "Mode": "Default",
@@ -1069,6 +1069,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\user\\projets\\codeFirstNet\\codeFirstNet\\wwwroot\\person-icon.png",
+      "SourceId": "codeFirstNet",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\user\\projets\\codeFirstNet\\codeFirstNet\\wwwroot\\",
+      "BasePath": "_content/codeFirstNet",
+      "RelativePath": "person-icon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\person-icon.png"
     }
   ]
 }
