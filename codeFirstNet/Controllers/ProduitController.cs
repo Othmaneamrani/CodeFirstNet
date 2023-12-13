@@ -38,13 +38,13 @@ namespace codeFirstNet.Controllers
             await produitContext.produits.AddAsync(produit);
             await produitContext.SaveChangesAsync();
 
-            return RedirectToAction("list");
+            return RedirectToAction("List");
         }
 
 
 
         [HttpGet]
-        public async Task<IActionResult> list()
+        public async Task<IActionResult> List()
         {
             var produits = await produitContext.produits.ToListAsync();
             return View(produits);
@@ -73,7 +73,7 @@ namespace codeFirstNet.Controllers
 
                 return View(produitCommand);
             }
-            return RedirectToAction("list");
+            return RedirectToAction("List");
         }
 
 
@@ -88,9 +88,9 @@ namespace codeFirstNet.Controllers
                 produit.quantite = produitCommand.quantiteCommand;
                 produit.description = produitCommand.descriptionCommand;
                 await produitContext.SaveChangesAsync();
-                return RedirectToAction("list");
+                return RedirectToAction("List");
             }
-            return RedirectToAction("list");
+            return RedirectToAction("List");
         }
 
 
@@ -103,7 +103,7 @@ namespace codeFirstNet.Controllers
             {
                 return View(produit);
             }
-            return RedirectToAction("list");
+            return RedirectToAction("List");
         }
 
 
@@ -116,10 +116,24 @@ namespace codeFirstNet.Controllers
             {
                 produitContext.produits.Remove(produitDelete);
                 await produitContext.SaveChangesAsync();
-                return RedirectToAction("list");
+                return RedirectToAction("List");
             }
-            return RedirectToAction("list");
+            return RedirectToAction("List");
         }
 
+
+        [HttpPost]
+        public async Task<ActionResult> Search(string search)
+        {
+            var produit = await produitContext.produits.Where(p => p.id.ToString() == search || p.titre.Contains(search) ).ToListAsync();
+            if (produit != null) {
+            return View("List", produit);
+            }
+            else
+            {
+            return View("List", null);
+
+            }
+        }
     }
 }
